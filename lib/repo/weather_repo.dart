@@ -5,8 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:weather_application_bloc/constant/constant.dart';
 import 'package:weather_application_bloc/models/weather_model.dart';
 
-class Weather_repo {
-  Weather_repo(String apiKey);
+class WeatherRepo {
+  WeatherRepo(String apiKey);
 
   Future<WeatherModel> fetchWeather(String cityName) async {
      try {

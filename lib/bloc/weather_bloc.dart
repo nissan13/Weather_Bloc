@@ -7,7 +7,7 @@ part 'weather_event.dart';
 part 'weather_state.dart';
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
-  final Weather_repo weatherRepository;
+  final WeatherRepo weatherRepository;
 
   WeatherBloc(this.weatherRepository) : super(WeatherInitial()){
     on<GetWeather>(getWeather);

@@ -19,7 +19,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-final Weather_repo weatherRepository = Weather_repo(apiKey);
+final WeatherRepo weatherRepository = WeatherRepo(apiKey);
     
     return MaterialApp(
       debugShowCheckedModeBanner: false,
