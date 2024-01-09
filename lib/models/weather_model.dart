@@ -4,7 +4,7 @@ class WeatherModel {
   final String temp_max;
   final String city;
   final String desc;
-  final String icon;
+  final String condition;
 
   WeatherModel.fromMap(Map<String, dynamic> json)
       : temp = json['main']['temp'].toString(),
@@ -12,6 +12,6 @@ class WeatherModel {
       temp_max = json['main']['temp_max'].toString(),
         city = json['name'],
         desc = json['weather'][0]['description'],
-        icon = json['weather'][0]['icon'];
+        condition = json['weather'][0]['main'];
 }
 
