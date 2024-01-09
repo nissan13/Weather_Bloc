@@ -30,10 +30,11 @@ class _HomePageState extends State<HomePage> {
             children: [
               Container(
                 child: TextField(
-                  autofocus: true,
+                  autofocus: false,
                   controller: _cityController,
                   decoration: InputDecoration(
                     suffixIcon: IconButton(
+                      iconSize: 30,
                         onPressed: () {
                           BlocProvider.of<WeatherBloc>(context)
                               .add(GetWeather(_cityController.text));
@@ -51,7 +52,7 @@ class _HomePageState extends State<HomePage> {
               BlocBuilder<WeatherBloc, WeatherState>(
                 builder: (context, state) {
                   if (state is WeatherLoading) {
-                    return const CircularProgressIndicator();
+                    return  const Center(child: CircularProgressIndicator());
                   } else if (state is WeatherLoaded) {
                     return WeatherPage(state.weather, _cityController.text);
                     // Column(
