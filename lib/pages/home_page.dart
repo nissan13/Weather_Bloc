@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
                   controller: _cityController,
                   decoration: InputDecoration(
                     suffixIcon: IconButton(
-                      iconSize: 30,
+                        iconSize: 30,
                         onPressed: () {
                           BlocProvider.of<WeatherBloc>(context)
                               .add(GetWeather(_cityController.text));
@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
               BlocBuilder<WeatherBloc, WeatherState>(
                 builder: (context, state) {
                   if (state is WeatherLoading) {
-                    return  const Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator());
                   } else if (state is WeatherLoaded) {
                     return WeatherPage(state.weather, _cityController.text);
                     // Column(
@@ -63,18 +63,33 @@ class _HomePageState extends State<HomePage> {
                     //   ],
                     // );
                   } else if (state is WeatherError) {
-                    return Text('Error: ${state.message}');
+                    return Column(
+                      children: [
+                        Text('Error: ${state.message}'),
+                        Image.asset("error.png"),
+                        const Text("Try resolving an error")
+                      ],
+                    );
                   } else {
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
                           constraints: const BoxConstraints(maxWidth: 3000.0),
-                                        child: Image.asset('logoo.gif'),
+                          child: Image.asset('logoo.gif'),
                         ),
-                        const SizedBox(height: 30,),
-                        const Text("Welcome to the world of", style: TextStyle(fontSize: 30),),
-                        const Text("WEATHER", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),)
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        const Text(
+                          "Welcome to the world of",
+                          style: TextStyle(fontSize: 30),
+                        ),
+                        const Text(
+                          "WEATHER",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 30),
+                        )
                       ],
                     );
                   }

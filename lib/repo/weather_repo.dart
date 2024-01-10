@@ -19,7 +19,7 @@ class WeatherRepo {
         Map<String, dynamic> data = jsonDecode(response.body);
         return WeatherModel.fromMap(data);
       } else {
-        throw Exception('Failed to load weather data');
+        throw Exception("Failed to fetch weather data");
       }
     } catch (e) {
       throw Exception(e);
